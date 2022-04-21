@@ -1,0 +1,62 @@
+<h1>Details</h1>
+<h2>
+    Client : <%- customer.customerName %>
+</h2>
+<h3>
+    <%- customer.contactFirstName %>
+        <%- customer.contactLastName %>
+</h3>
+<h4>
+    <%- customer.addressLine1 %>,
+        <%- customer.city %>
+
+
+</h4>
+
+<table class="standard-table">
+    <thead>
+        <tr>
+            <th>Nom du produit</th>
+            <th>Prix du produit</th>
+            <th>Quantité commandée</th>
+            <th>Total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <% orderDetails.forEach(details=> { %>
+            <tr>
+                <td>
+                    <%- details.productName %>
+                </td>
+                <td>
+                    <%- details.priceEach %> €
+                </td>
+                <td>
+                    <%- details.quantityOrdered %>
+                </td>
+                <td>
+                    <%- (details.quantityOrdered * details.priceEach).toFixed(2) %> €
+                </td>
+
+            </tr>
+
+            <% }) %>
+    </tbody>
+</table>
+
+
+<hr>
+
+
+
+
+<div class="order-form-customer">
+
+    <h3>Total HT : <%- totalValue %> €</h3>
+    <h3>TVA 20% : <%- tva %> €</h3>
+    <h3>Total HT : <%- ttc %> €</h3>
+</div>
+
+<button onclick="location.href='/'">Retour
+</button>

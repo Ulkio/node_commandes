@@ -1,0 +1,34 @@
+<h1>Home</h1>
+
+
+<table class="standard-table">
+    <thead>
+        <tr>
+            <th>Numéro de commande</th>
+            <th>Date de la commande</th>
+            <th>Date de livraison</th>
+            <th>Statut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach(element=> { %>
+            <tr onclick="location.href='details/<%- element.orderNumber %>'">
+                <td>
+
+                    <%- element.orderNumber %>
+
+                </td>
+                <td>
+                    <%- new Date(element.orderDate).toLocaleDateString("fr") %>
+                </td>
+                <td>
+                    <%- new Date(element.shippedDate).toLocaleDateString("fr") %>
+                </td>
+                <td>
+                    <%- element.status %>
+                </td>
+            </tr>
+
+            <% }) %>
+    </tbody>
+</table>
